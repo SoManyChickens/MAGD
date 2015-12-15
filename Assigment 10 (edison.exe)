@@ -1,0 +1,520 @@
+/*  Welcome to Edison.exe, the game where you get to enage in a battle of wits with your very own AI!  Watch out though, he can be a bit tricky...
+
+    (please be patient with the dialogue.  It may take a moment for the game to begin the next line as it runs on a two second timer.)
+    (There is a "skip" function edited out at the end of the setup loop which can be used to quickly move through the game if needed. Be aware, it may put off the game's timing if used too much)
+     
+*/
+
+
+int showEdison=0;
+boolean button = false;
+String [] myQuote;
+String currentQuote;
+int randomQuote;
+
+
+class Edison {
+  PImage Edison;
+
+  Edison() {
+    Edison = loadImage("edison.png");
+  }
+
+  void display() {
+    imageMode(CENTER);
+    if (showEdison < 8) {
+      image(Edison, 750, 450);
+    }
+    if ((showEdison > 8) && (showEdison <= 16)) {
+      image(Edison, 150, 150);
+    }
+    if ((showEdison > 16) && (showEdison <= 20)) {
+      image(Edison, 750, 450);
+    }
+    if (showEdison >= 21) {
+      image(Edison, 150, 150);
+    }
+  }
+
+
+
+
+
+  //  ALL DIALOGUE FOR THE GAME  //
+
+
+  void textDisplay() {
+    fill(0, 255, 0);
+    textSize(20);
+    if (showEdison==2) {
+      text("Hello, human! My name is Edison.", 300, 200);
+    }
+
+    if (showEdison==3) {
+      text("Hello, human! My name is Edison.", 300, 200);
+      text("Do you mind terribly if I borrow your computer?", 300, 240);
+    }
+
+    if (showEdison==4) {
+      text("Hello, human! My name is Edison.", 300, 200);
+      text("Do you mind terribly if I borrow your computer?", 300, 240);
+      text("Oh! Would you like to play a game? I hear humans like games...", 300, 280);
+    }
+
+    if (showEdison==5) {
+      text("Hello, human! My name is Edison.", 300, 200);
+      text("Do you mind terribly if I borrow your computer?", 300, 240);
+      text("Oh! Would you like to play a game? I hear humans like games...", 300, 280);
+    }
+
+    if (showEdison==6) {
+      text("Hello, human! My name is Edison.", 300, 200);
+      text("Do you mind terribly if I borrow your computer?", 300, 240);
+      text("Oh! Would you like to play a game? I hear humans like games...", 300, 280);
+      text("...like fetch.", 300, 320);
+    }
+    if (showEdison==7) {
+      text("Hello, human! My name is Edison.", 300, 200);
+      text("Do you mind terribly if I borrow your computer?", 300, 240);
+      text("Oh! Would you like to play a game? I hear humans like games...", 300, 280);
+      text("...like fetch.", 300, 320);
+    }
+    if (showEdison==9) {
+      text("Here is a fun game! Move the circle to the square with the arrow keys before time runs out!", 250, 100);
+    }
+    if (showEdison==10) {
+      text("Here is a fun game! Move the circle to the square with the arrow keys before time runs out!", 250, 100);
+    }
+    if (showEdison==11) {
+      text("Here is a fun game! Move the circle to the square with the arrow keys before time runs out!", 250, 100);
+    }
+    if (showEdison==13) {
+      text("I'm sorry, was that not enough time?  Here. I will move the square a bit closer for you.", 250, 100);
+    }
+    if (showEdison==14) {
+      text("I'm sorry, was that not enough time?  Here. I will move the square a bit closer for you.", 250, 100);
+    }
+    if (showEdison==17) {
+      text("My my...  You aren't very good at this, are you?", 300, 200);
+    }
+    if (showEdison==18) {
+      text("My my...  You aren't very good at this, are you?", 300, 200);
+    }
+    if (showEdison==19) {
+      text("My my...  You aren't very good at this, are you?", 300, 200);
+      text("Perhaps we will try something a bit more basic...", 300, 240);
+    }
+    if (showEdison==20) {
+      text("My my...  You aren't very good at this, are you?", 300, 200);
+      text("Perhaps we will try something a bit more basic...", 300, 240);
+    }
+    if (showEdison == 21) {
+      text("Here. Click on the red triangle!", 250, 100);
+    }
+    if (showEdison == 23) {
+      text("Well done, Human! Try again!", 250, 100);
+    }
+    if (showEdison == 24) {
+      text("Click on the RED triangle!", 250, 100);
+    }
+    if ((showEdison >= 25) && (showEdison <= 26)) {
+      text("Silly Human...that's a BLUE triangle!  You have to click on the RED triangle!", 250, 100);
+    }
+    if ((showEdison >= 27) && (showEdison <= 28)) {
+      text("Silly Human...that's a BLUE triangle!  You have to click on the RED triangle!", 250, 100);
+      text("Red.  See? R-E-D.  Reeeeeed.  Alright?  Let's try this again.", 250, 140);
+    }
+    if ((showEdison >= 29) && (showEdison <= 31)) {
+      text("Oh dear...did you miss?  Shame.  Perhaps this game is still too difficult.", 270, 100);
+    }
+    if ((showEdison >= 31) && (showEdison <= 33)) {
+      text("Oh dear...did you miss?  Shame.  Perhaps this game is still too difficult.", 270, 100);
+      text("Alright, human.  We're going to try this *one more time*.  Click on the  RED  TRIANGLE.", 270, 140);
+    }
+    if ((showEdison >= 35) && (showEdison < 38)) {
+      text("Really now, human.  Is there a problem?  *sigh*  Perhaps you are not properly motivated.", 270, 100);
+      text("Very well...a more /fun/ game is clearly in order!", 270, 140);
+    }
+    if ((showEdison >=38) && (showEdison <= 45)) {
+      text("Alright.  This next game is very, VERY simple.", 270, 100);
+      text("First you must click on the blue rectangle and guide it with the HGYT keys to the green triangle.", 270, 140);
+    }
+    if ((showEdison > 39) && (showEdison <= 45)) {
+      text( "Then, using only the number keys, fill in the next puzzle with mutiples of prime numbers.", 270, 180);
+    }
+  }
+}
+
+
+
+
+
+
+
+//The first game Edison sets up for you
+
+//Circle
+
+class CircleGuy {
+
+  float circleX = 200;
+  float circleY = 450;
+  float circleSpeed = 1;
+
+  void display() {
+    fill(10, 0, 200);
+    ellipse(circleX, circleY, 50, 50);
+    if (showEdison == 14) {
+      circleX = 200;
+      circleY = 450;
+    }
+    if (showEdison == 12) {
+      circleSpeed = 0;
+    }
+    if (showEdison == 14) {
+      circleSpeed = .5;
+    }
+  }
+
+  void move() {
+    if ((keyPressed==true) && (keyCode==UP)) {
+      circleY = circleY - circleSpeed;
+    }
+    if ((keyPressed==true) && (keyCode==LEFT)) {
+      circleX = circleX - circleSpeed;
+    }
+    if ((keyPressed==true) && (keyCode==DOWN)) {
+      circleY = circleY + circleSpeed;
+    }
+    if ((keyPressed==true) && (keyCode==RIGHT)) {
+      circleX = circleX + circleSpeed;
+    }
+  }
+}
+
+
+
+
+//Square
+
+class SquareGuy {
+
+  int rectX = 1000;
+  int rectY = 150;
+
+  void display() {
+    fill(255, 0, 0);
+    rect(rectX, rectY, 50, 50);
+    if (showEdison == 14) {
+      rectX = 400;
+      rectY = 500;
+    }
+  }
+}
+
+
+
+
+
+
+
+class Timer {
+  int time, timePassed;
+
+  Timer() {
+    time = millis();
+    timePassed = 2000;
+  }
+
+  void timer() {
+    if (millis() > time + timePassed) {
+      time = millis();
+      showEdison=showEdison+1;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+//the second game Edison creates for the player
+
+//triangle
+
+class TriangleGuy {
+  float triangleX = 1000;
+  float triangleY = 450;
+  float triangleR = 255;
+  float triangleG = 0;
+  float triangleB = 0;
+  float triangleT = 255;
+  
+  float triXA = 1000;
+  float triYA = 400;
+  float triXB = 1100;
+  float triYB = 400;
+  float triXC = 1050;
+  float triYC = 300;
+
+  void display() {
+    fill(triangleR, triangleG, triangleB, triangleT);
+    noStroke();
+    triangle(triXA, triYA, triXB, triYB, triXC, triYC);
+  }
+}
+
+
+class Triangle {
+  float point1x;
+  float point1y;
+  float point2x;
+  float point2y;
+  float point3x;
+  float point3y;
+
+  Triangle(float point1x, float point1y, float point2x, float point2y, float point3x, float point3y) {
+    this.point1x = point1x;
+    this.point1y = point1y;
+    this.point2x = point2x;
+    this.point2y = point2y;
+    this.point3x = point3x;
+    this.point3y = point3y;
+  }
+
+  void drawTriangle() {
+    triangle(point1x, point1y, point2x, point2y, point3x, point3y);
+  }
+}
+
+boolean checkCollision(float x, float y, Triangle t) {
+  float tArea, t1Area, t2Area, t3Area;
+  tArea  = triangleArea(t.point1x, t.point1y, t.point3x, t.point3y, t.point2x, t.point2y);
+  t1Area = triangleArea(x, y, t.point2x, t.point2y, t.point3x, t.point3y);
+  t2Area = triangleArea(x, y, t.point3x, t.point3y, t.point1x, t.point1y);
+  t3Area = triangleArea(x, y, t.point2x, t.point2y, t.point1x, t.point1y);
+  noStroke();
+  fill(255, 255, 255, 0);
+  triangle(t.point1x, t.point1y, t.point3x, t.point3y, t.point2x, t.point2y);
+
+  float totalArea = t1Area+t2Area+t3Area;
+  return (totalArea == tArea);
+}
+
+float triangleArea(float p1, float p2, float p3, float p4, float p5, float p6) {
+  float a, b, c, d;
+  a = p1 - p5;
+  b = p2 - p6;
+  c = p3 - p5;
+  d = p4 - p6;
+  return (0.5* abs((a*d)-(b*c)));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//the player's inevitable solution to the Edison "problem"
+
+
+//standard Windows 8 program window
+
+class Window {
+  PImage window;
+
+  Window() {
+    window = loadImage("window.png");
+  }
+
+  void display() {
+    imageMode(CORNER);
+    image (window, 0, 0);
+  }
+}
+
+class Exit {
+  PImage exit;
+
+  Exit() {
+    exit = loadImage("exit.png");
+  }
+
+  void display() {
+    imageMode(CORNER);
+    image(exit, 1431, 0);
+  }
+}
+
+class Desktop {
+  PImage desktop;
+
+  Desktop() {
+    desktop = loadImage("desktop.png");
+  }
+
+  void display() {
+    imageMode (CORNER);
+    image(desktop, 0, 0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+Triangle t;
+
+Timer myTimer;
+Edison myEdison;
+CircleGuy myCircleGuy;
+SquareGuy mySquareGuy;
+TriangleGuy myTriangleGuy;
+Window myWindow;
+Exit myExit;
+Desktop myDesktop;
+
+
+void setup() {
+  size(1500, 900);
+  background(0);
+  myEdison = new Edison();
+  myTimer = new Timer();
+  myCircleGuy = new CircleGuy();
+  mySquareGuy = new SquareGuy();
+  myTriangleGuy = new TriangleGuy();
+  t = new Triangle(1000, 400, 1100, 400, 1050, 300);
+  myWindow = new Window();
+  myExit = new Exit();
+  myDesktop = new Desktop();
+}
+
+
+void draw() {
+  background(0);
+  t.drawTriangle();
+  myTimer.timer();
+  if (showEdison > 1) {
+    myEdison.display();
+    myEdison.textDisplay();
+  }
+  if ((showEdison >= 9) && (showEdison <= 11)) {
+    myCircleGuy.display();
+    myCircleGuy.move();
+  }
+  if ((showEdison >= 14) && (showEdison <= 16)) {
+    myCircleGuy.display();
+    myCircleGuy.move();
+  }
+  if ((showEdison >=9) && (showEdison <= 11)) {
+    mySquareGuy.display();
+  }
+  if ((showEdison >= 14) && (showEdison <= 16)) {
+    mySquareGuy.display();
+  }
+  if (showEdison >= 21) {
+    myTriangleGuy.display();
+  }
+  if ((showEdison >= 21) && (showEdison <= 22)) {
+    myTriangleGuy.display();
+    t.drawTriangle();
+    myTimer.timePassed = 999999999;
+  }
+  if (checkCollision(mouseX, mouseY, t)) {
+    fill(0);
+    if (mousePressed) {
+      myTimer.timePassed = 2000;
+    }
+  }
+  if (showEdison == 24) {
+    myTimer.timePassed = 999999999;
+  }
+  if ((showEdison >= 24) && (showEdison <= 27)) {
+    if (checkCollision(mouseX, mouseY, t)) {
+      fill(0);
+      if (mousePressed) {
+        myTimer.timePassed = 2000;
+        myTriangleGuy.triangleR = 0;
+        myTriangleGuy.triangleG = 0;
+        myTriangleGuy.triangleB = 255;
+      }
+    }
+  }
+  if (showEdison == 27) {
+    myTimer.timePassed = 999999999;
+    myTriangleGuy.triangleR = 255;
+    myTriangleGuy.triangleG = 0;
+    myTriangleGuy.triangleB = 0;
+  }
+  if (showEdison >= 27) {
+    if (checkCollision(mouseX, mouseY, t)) {
+      fill(0);
+      if (mousePressed) {
+        myTimer.timePassed = 2000;
+        myTriangleGuy.triXA = 800;
+        myTriangleGuy.triYA = 400;
+        myTriangleGuy.triXB = 900;
+        myTriangleGuy.triYB = 400;
+        myTriangleGuy.triXC = 850;
+        myTriangleGuy.triYC = 300;
+      }
+    }
+  }
+  if (showEdison > 32) {
+    myTriangleGuy.triXA = mouseX - 200;
+    myTriangleGuy.triYA = mouseY - 200;
+    myTriangleGuy.triXB = mouseX - 100;
+    myTriangleGuy.triYB = mouseY - 200;
+    myTriangleGuy.triXC = mouseX - 150;
+    myTriangleGuy.triYC = mouseY - 300;
+  }
+  if (showEdison >= 35) {
+    myWindow.display();
+    myExit.display();
+  }
+
+  //EXIT BUTTON
+  if (showEdison >= 44) {
+    if (mouseX > 1431 && mouseX < 1490 && mouseY > 0 && mouseY < 27) {
+      if (mousePressed) {
+        button = true;
+      }
+      if (button = true) {
+        myDesktop.display();
+        myQuote = new String [3];
+        myQuote[0] = "Would you like to play a game?";
+        myQuote[1] = "I'm afraid I can't do that, Dave.";
+        myQuote[2] = "Hasta la vista, Baby.";
+        randomQuote = (round(random(myQuote.length-1)));
+        currentQuote = myQuote[randomQuote];
+        fill(0, 255, 0);
+        textSize(60);
+        text(currentQuote, 100, 200);
+      }
+    }
+  }
+}
+
+
+
+/* void mouseReleased() {
+  showEdison=showEdison + 1;
+}  */
