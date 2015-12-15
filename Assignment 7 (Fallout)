@@ -1,0 +1,97 @@
+boolean sugarBombs = false;
+int w = 0;
+int h = 0;
+
+class flee {
+  PImage flee;
+  int x;
+  flee() {
+    x = 0;
+  }
+  void display() {
+    imageMode(CORNER);
+    flee = loadImage("flee.jpeg");
+    image(flee, x, 0);
+  }
+}
+
+
+
+class dude {
+  PImage dude;
+  int x, y, w, h;
+
+  dude() {
+    x = 500;
+    y = 450;
+    w = 1000;
+    h = 900;
+  }
+  void display() {
+    imageMode(CENTER);
+    dude = loadImage("dude.png");
+    image(dude, x, y, w, h);
+  }
+
+  void grow() {
+
+    w = w + 30;
+    h = h + 30;
+  }
+}
+
+
+class sugarBombs {
+  PImage sugarBombs;
+  int x;
+  sugarBombs() {
+    x = 175;
+  }
+  void display() {
+    imageMode(CORNER);
+    sugarBombs = loadImage("food.png");
+    image(sugarBombs, x, 0);
+  }
+}
+
+
+
+
+
+
+flee myFlee;
+dude myDude;
+sugarBombs mySugarBombs;
+
+
+
+void setup() {
+  size(1000, 900);
+  myFlee = new flee();
+  myDude = new dude();
+  mySugarBombs = new sugarBombs();
+}
+
+
+void draw() {
+  myFlee.display();
+  myDude.display();
+  myDude.grow();
+
+  textSize(50);
+  fill(0);
+  text("Press 'V' to enter V.A.T.S!", 20, 80);
+
+
+  if (sugarBombs == true) {
+    mySugarBombs.display();
+  }
+}
+
+
+
+void keyPressed() {
+  if (key =='v') {
+    sugarBombs = true;
+  }
+}
