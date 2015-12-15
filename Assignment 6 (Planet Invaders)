@@ -1,0 +1,130 @@
+int randomColor1, randomColor2, randomColor3;
+int ufoTop = 10;
+int starX, starY;
+float planetX = 700;
+float planetY = 350;
+int textX = 1;
+int direction = 10;
+float planetColorRed, planetColorGreen, planetColorBlue;
+int startUpColor1 = 0;
+int startUpColor2 = 0;
+int startUpColor3 = 30;
+int startUpColor = 255;
+int whiteText = 255;
+
+void setup() {
+  size(1400, 900);
+  planetColorRed = random(0, 255);
+  planetColorGreen = random(0, 255);
+  planetColorBlue = random(0, 255);
+}
+
+void draw() {
+
+  
+  
+  background(0);
+
+  noCursor();
+
+
+
+  //STARS
+  starX = round(random(0, width));
+  starY = round(random(0, height));
+
+  for (int x = 0; x<100; x++) {
+    stroke(255);
+    strokeWeight(3);
+    point(starX, starY);
+  }
+
+
+
+  fill(planetColorRed, planetColorGreen, planetColorBlue);
+  noStroke();
+  ellipse(planetX, planetY, 200, 200);
+
+
+
+
+  if ((abs(planetX-mouseX)<100) && (abs(planetY-mouseY)<100)) {
+    textSize(50);
+    stroke(255);
+    fill(255);
+    text("Click to invade!", 70, 70);
+  }
+
+  if ((textX<=0)||(textX>=1100)) {
+    direction = direction * -1;
+  }
+  textX = textX + direction;
+
+  fill(255, 0, 0);
+  textSize(45);
+  text("PEW  PEW  PEW", textX, 100);
+
+
+  ufo();
+}
+void planet() {
+
+  planetX = random(0, width);
+  planetY = random(0, height);
+
+
+
+
+  //UFO
+}
+void ufo() {
+
+  fill(50);
+  noStroke();
+  ellipseMode(CENTER);
+  ellipse(mouseX, mouseY, 150, 150);
+
+  randomColor1 = round(random(0, 255));
+  randomColor2 = round(random(0, 255));
+  randomColor3 = round(random(0, 255));
+  fill(randomColor1, randomColor2, randomColor3);
+  ellipse(mouseX, mouseY, 90, 90);
+  fill(100, 100);
+  noStroke();
+  for (int x = 1; x < 10; x++) {
+    ellipse(mouseX, mouseY, ufoTop+(x*10), ufoTop+(x*10));
+  }
+  
+  startUpScreen();
+  
+}
+
+
+
+void startUpScreen() {
+  fill(startUpColor1, startUpColor2, startUpColor3, startUpColor);
+  noStroke();
+  rect(0, 0, 1400, 900);
+  fill(whiteText, whiteText, whiteText, whiteText);
+  textSize(80);
+  text("PLANET INVADERS", 350, 400);
+
+}
+
+
+
+void mousePressed() {
+  if ((abs(planetX-mouseX)<100) && (abs(planetY-mouseY)<100)) {
+    planet();
+    planetColorRed = random(0, 255);
+    planetColorGreen = random(0, 255);
+    planetColorBlue = random(0, 255);
+  }
+}
+  void keyPressed() {
+    if (keyPressed) {
+      startUpColor = 0;
+      whiteText = 0;
+  
+}
+}
