@@ -17,7 +17,7 @@ class Edison {
   PImage Edison;
 
   Edison() {
-    Edison = loadImage("edison.png");
+    Edison = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822779/e95f28ce-a335-11e5-97ce-caf8dc621379.png");
   }
 
   void display() {
@@ -335,7 +335,7 @@ class Window {
   PImage window;
 
   Window() {
-    window = loadImage("window.png");
+    window = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822819/23969e00-a336-11e5-942c-6760bdcc76a8.png");
   }
 
   void display() {
@@ -348,7 +348,7 @@ class Exit {
   PImage exit;
 
   Exit() {
-    exit = loadImage("exit.png");
+    exit = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822805/07a227fa-a336-11e5-91f6-8ea78c81f765.png");
   }
 
   void display() {
@@ -361,7 +361,7 @@ class Desktop {
   PImage desktop;
 
   Desktop() {
-    desktop = loadImage("desktop.png");
+    desktop = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822748/cad7870c-a335-11e5-8b09-75d56f9c4e26.png");
   }
 
   void display() {
