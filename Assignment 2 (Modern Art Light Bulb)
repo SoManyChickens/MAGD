@@ -1,0 +1,204 @@
+void setup() {
+ 
+  size(1200, 1200);
+  background(20);
+ 
+ 
+ 
+ 
+//Pedistal
+  
+  //top piece
+  fill(200);
+  noStroke();
+  beginShape();
+    vertex(400, 730);
+    vertex(800, 730);
+    vertex(850, 800);
+    vertex(350, 800);
+  endShape();
+  
+  //bottom piece
+  beginShape();
+    vertex(300, 800);
+    vertex(900, 800);
+    vertex(990, 910);
+    vertex(190, 910);
+  endShape();
+  
+  
+  //triangles
+  fill(255, 0, 0);
+  triangle(620, 735, 570, 735, 570, 795);
+  triangle(575, 795, 625, 795, 625, 735);
+  
+  
+  //weird decortive shape thingies
+  beginShape();
+   vertex(200, 900);
+   vertex(330, 820);
+   vertex(460, 880);
+   vertex(590, 820);
+   vertex(720, 880);
+   vertex(830, 820);
+   vertex(980,900);
+  endShape();
+  
+  
+  beginShape();
+    vertex(420, 750);
+    vertex(545, 750);
+    vertex(545, 780);
+    vertex(460, 850);
+  endShape();
+  
+  beginShape();
+    vertex(650, 750);
+    vertex(650, 780);
+    vertex(720, 850);
+    vertex(780, 750);
+  endShape(); 
+  //I'm so glad I paid attention in geometry
+  
+  
+}
+  
+  
+  
+  
+  
+  
+  
+ 
+  void draw() {
+   
+    
+    
+       size(1200, 1200);
+  background(20); 
+  
+    
+    //stars
+    stroke(255);
+    strokeWeight(7);
+    point(100, 100);
+    point(547, 300);
+    point(700, 160);
+    point(900, 50);
+    point(880, 300);
+    point(200, 800);
+    point(325, 500);
+    point(750, 940);
+    
+  
+//PEDISTAL
+  
+  //top piece
+  fill(200);
+  noStroke();
+  beginShape();
+    vertex(400, 730);
+    vertex(800, 730);
+    vertex(850, 800);
+    vertex(350, 800);
+  endShape();
+  
+  //bottom piece
+  beginShape();
+    vertex(300, 800);
+    vertex(900, 800);
+    vertex(990, 910);
+    vertex(190, 910);
+  endShape();
+  
+  
+  //triangles
+  fill(0, 0, 125);
+  triangle(620, 735, 570, 735, 570, 795);
+  triangle(575, 795, 625, 795, 625, 735);
+  
+  
+  //weird decortive shape thingies
+  beginShape();
+   vertex(200, 900);
+   vertex(330, 820);
+   vertex(460, 880);
+   vertex(590, 820);
+   vertex(720, 880);
+   vertex(830, 820);
+   vertex(980,900);
+  endShape();
+  
+  
+  beginShape();
+    vertex(420, 750);
+    vertex(545, 750);
+    vertex(545, 780);
+    vertex(460, 850);
+  endShape();
+  
+  beginShape();
+    vertex(650, 750);
+    vertex(650, 780);
+    vertex(720, 850);
+    vertex(780, 750);
+  endShape(); 
+  //I'm so glad I paid attention in geometry 
+    
+    
+    
+    
+
+//LIGHTBULB
+ 
+  fill(mouseY, mouseX, 0);
+  noStroke();
+  ellipseMode(CENTER);
+  ellipse(600, 500, 250, 300);
+  
+  fill(150);
+  rectMode(CENTER);
+  rect(600, 680, 120, 100);
+  
+  noFill();
+  stroke(255);
+  strokeWeight(4);
+  arc(600, 640, 117, 20, 0, PI);
+  
+  arc(600, 660, 117, 20, 0, PI);
+   
+  arc(600, 680, 117, 20, 0, PI);
+    
+  arc(600, 700, 117, 20, 0, PI);
+
+  //refective spot
+    fill(255);
+    noStroke();
+    ellipse(675, 450, 20, 30);
+    ellipse(695, 470, 20, 30);
+
+  
+ //lines
+   stroke(255);
+   strokeWeight(7);
+   line(100, 0, 100, 1200);
+   line(1100, 0, 1100, 1200);
+  
+  
+
+
+
+
+//CURTAINS
+
+//curtain 1
+  fill(100, 0, 0);
+  noStroke();
+  rectMode(CORNERS);
+  rect(0, 0, mouseX, 1200);
+
+//curtain 2
+  rect(1200, 0, width-mouseX, 1200);
+
+
+}
