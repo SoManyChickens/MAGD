@@ -1,0 +1,87 @@
+float posX = 90;
+float posY=200;
+int ballDiameter=40;
+float gravity=2;
+float velocityY=0.0;
+float velocityX=0.0;
+boolean onGround = false;
+int eyes = 0;
+
+
+
+
+void setup(){
+  size(1200, 900);
+  background(0, 0, 30);
+  
+  
+//BUILDINGS
+  fill(90);
+  noStroke();
+  rect(0, 400, 500, 600);
+  rect(700, 400, 500, 600);
+}
+
+
+
+
+void draw(){
+  background(0, 0, 30);
+
+  
+  //BUILDINGS
+  fill(90);
+  noStroke();
+  rect(0, 400, 500, 600);
+  rect(700, 400, 500, 600);
+  update();
+}
+
+
+void update(){
+  velocityY = gravity + velocityY;
+  posY = velocityY + posY;
+  posX = posX + velocityX;
+  if ((posY + (ballDiameter/2)>= (400))  &&(posX < 510) || (posX>700) &&(posY<600)){
+     posY = 400 - (ballDiameter/2);
+     onGround = true;
+  } else {
+    onGround = false;
+     
+     
+
+  }
+  
+  fill(255, 255, 255, 30);
+  noStroke();
+  for(int x = 1; x < 10; x++){
+  ellipse(posX, posY, ballDiameter+(x*3), ballDiameter+(x*3));
+}
+fill(eyes);
+ellipse(posX - 10, posY, 10, 20);
+ellipse(posX + 10, posY, 10, 20);
+
+
+  while(onGround = false){
+  eyes = 255;
+
+}
+fill(255, 255, 255);
+noStroke();
+textSize(80);
+text("Dot Parkour", 370, 140);
+
+
+}
+
+
+void mousePressed(){
+  
+    jump();
+  }
+
+
+void jump(){
+  velocityY = -23;
+  velocityX = +8;
+}
