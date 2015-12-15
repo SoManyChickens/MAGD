@@ -1,0 +1,184 @@
+float snailX = 0;
+float snailY = 450;
+float wordz = 255;
+
+
+
+//CLASSES  &%&%&%&%&%&%&%&%
+
+
+//TIMER
+class Timer {
+  int savedTime;  
+  int totalTime;  
+
+
+  Timer(int _totalTime) {
+    totalTime = _totalTime;
+  }
+
+
+  void start() {
+    savedTime = millis();
+  }
+
+  boolean isFinished() {
+    int passedTime = millis() - savedTime;
+    if (passedTime > totalTime) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+
+
+//BACKGROUND NORMAL
+class city {
+  PImage city;
+  
+  city() {
+    city = loadImage ("city.png");
+  }
+  
+  void display() {
+    imageMode(CORNER);
+    image(city, 0, 0);
+  }
+}
+
+
+
+
+//BACKGROUND WASTED
+class cityWasted {
+  PImage cityWasted;
+  
+  cityWasted() {
+    cityWasted = loadImage("cityWasted.png");
+  }
+  
+  void display() {
+    imageMode(CORNER);
+    image(cityWasted, 0, 0);
+  }
+}
+
+
+
+//WASTED
+class wasted {
+  PImage wasted;
+  
+  wasted(){
+    wasted = loadImage("wasted.png");
+  }
+  
+  void display() {
+    imageMode(CENTER);
+    image(wasted, 750, 450);
+  }
+}
+
+
+
+//SNAIL
+class snail {
+  PImage snail;
+  
+  snail() {
+    snail = loadImage("snail.png");
+  }
+
+  void display() {
+    imageMode(CENTER);
+    image(snail, snailX, snailY);
+  }
+  
+  void move() {
+    if (keyPressed) {
+      if (key == 'w') {
+        snailY = snailY - 2;
+      } 
+      if (key == 'a') {
+        snailX = snailX - 2;
+      }
+      if (key == 'd') {
+        snailX = snailX + 2;
+      } 
+      if (key == 's') {
+        snailY = snailY + 2;
+      }
+    }
+  }
+}
+
+
+
+//SNAIL WASTED
+class snailWasted {
+  PImage snailWasted;
+  
+  snailWasted() {
+    snailWasted = loadImage("snailWasted.png");
+  }
+  
+  void display() {
+    imageMode(CENTER);
+    image(snailWasted, 750, 450);
+  }
+}
+
+//CAR
+class car {
+  PImage car;
+  
+  car() {
+    car = loadImage("car.png");
+  }
+  
+  void display() {
+    imageMode(CENTER);
+    image(car, 1200, 500);
+  }
+}
+
+
+city myCity;
+cityWasted myCityWasted;
+snail mySnail;
+snailWasted mySnailWasted;
+car myCar;
+Timer myTimer;
+wasted myWasted;
+
+
+void setup() {
+  size(1500, 900);
+  myCity = new city();
+  mySnail = new snail();
+  mySnailWasted = new snailWasted();
+  myCar = new car();
+  myCityWasted = new cityWasted();
+  myTimer = new Timer(5000);
+  myWasted = new wasted();
+}
+
+
+
+void draw() {
+  myCity.display();
+  mySnail.display ();
+  myCar.display();
+  mySnail.move();
+  if (myTimer.isFinished()) {
+    myCityWasted.display();
+    mySnailWasted.display();
+    myWasted.display();
+    wordz = 0;
+  }
+  textSize(80);
+  fill(0, 0, 0, wordz);
+  text("Steal the car!", 700, 650);
+}
