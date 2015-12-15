@@ -10,7 +10,7 @@ class flee {
   }
   void display() {
     imageMode(CORNER);
-    flee = loadImage("flee.jpeg");
+    flee = loadImage("https://cloud.githubusercontent.com/assets/14317589/11821965/befe3b96-a331-11e5-8e13-46f4be4ad18e.jpeg");
     image(flee, x, 0);
   }
 }
@@ -29,7 +29,7 @@ class dude {
   }
   void display() {
     imageMode(CENTER);
-    dude = loadImage("dude.png");
+    dude = loadImage("https://cloud.githubusercontent.com/assets/14317589/11821922/8dd3dc9c-a331-11e5-8888-272d6fbc7655.png");
     image(dude, x, y, w, h);
   }
 
@@ -49,7 +49,7 @@ class sugarBombs {
   }
   void display() {
     imageMode(CORNER);
-    sugarBombs = loadImage("food.png");
+    sugarBombs = loadImage("https://cloud.githubusercontent.com/assets/14317589/11821973/d1749ff4-a331-11e5-9253-b3bafa51597c.png");
     image(sugarBombs, x, 0);
   }
 }
