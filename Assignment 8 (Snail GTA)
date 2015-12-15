@@ -39,7 +39,7 @@ class city {
   PImage city;
   
   city() {
-    city = loadImage ("city.png");
+    city = loadImage ("https://cloud.githubusercontent.com/assets/14317589/11822237/3f69b98a-a333-11e5-96af-5c11487e550d.png");
   }
   
   void display() {
@@ -56,7 +56,7 @@ class cityWasted {
   PImage cityWasted;
   
   cityWasted() {
-    cityWasted = loadImage("cityWasted.png");
+    cityWasted = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822261/5e24c518-a333-11e5-80f5-babf8bebdf8b.png");
   }
   
   void display() {
@@ -72,7 +72,7 @@ class wasted {
   PImage wasted;
   
   wasted(){
-    wasted = loadImage("wasted.png");
+    wasted = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822341/bac13ed2-a333-11e5-99bc-ffe9b5b32ea6.png");
   }
   
   void display() {
@@ -88,7 +88,7 @@ class snail {
   PImage snail;
   
   snail() {
-    snail = loadImage("snail.png");
+    snail = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822295/8628724e-a333-11e5-8ecd-4bfe5f25f745.png");
   }
 
   void display() {
@@ -121,7 +121,7 @@ class snailWasted {
   PImage snailWasted;
   
   snailWasted() {
-    snailWasted = loadImage("snailWasted.png");
+    snailWasted = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822316/a03e3d3a-a333-11e5-8280-aacfda2335d7.png");
   }
   
   void display() {
@@ -135,7 +135,7 @@ class car {
   PImage car;
   
   car() {
-    car = loadImage("car.png");
+    car = loadImage("https://cloud.githubusercontent.com/assets/14317589/11822161/d9d3be9a-a332-11e5-864b-ea04060d25de.png");
   }
   
   void display() {
